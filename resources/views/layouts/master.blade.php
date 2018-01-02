@@ -83,21 +83,21 @@
                     <ul class="nav" id="side-menu">
                         @if (Auth::check())
                         <li>
-                            <a href="{{ url('/home')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="{{ url('/home')}}"><i class="fa fa-home fa-fw"></i> Dashboard</a>
                         </li>
                         @endif
                         @role('admin')
                         <li>
-                            <a href="{{ route('pelanggan.index')}}"><i class="fa fa-table fa-fw"></i> Pelanggan</a>
+                            <a href="{{ route('pelanggan.index')}}"><i class="fa fa-user fa-fw"></i> Pelanggan</a>
                         </li>
                         <li>
-                            <a href="{{ route('penjualan.index')}}"><i class="fa fa-table fa-fw"></i> Penjualan</a>
+                            <a href="{{ route('penjualan.index')}}"><i class="fa fa-database fa-fw"></i> Penjualan</a>
                         </li>
                         <li>
-                            <a href="{{ route('buku.index')}}"><i class="fa fa-table fa-fw"></i> Data Buku</a>
+                            <a href="{{ route('buku.index')}}"><i class="fa fa-book fa-fw"></i> Data Buku</a>
                         </li>
                         <li>
-                            <a href="{{ route('detailpenjualan.index')}}"><i class="fa fa-table fa-fw"></i> Detail Penjualan</a>
+                            <a href="{{ route('detailpenjualan.index')}}"><i class="fa fa-database fa-fw"></i> Detail Penjualan</a>
                         </li>
                         @endrole
                     </ul>
