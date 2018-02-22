@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Penjualan;
-use App\Pelanggan;
-use App\Penjualann;
+use DB;
 use App\Buku;
+use App\Penjualan;
+use App\Penjualann;
 
 class PenjualanController extends Controller
 {
@@ -15,11 +15,14 @@ class PenjualanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $transaksis;
     public function index()
     {
         //
-        $penjualan = Penjualann::with('Pelanggan','Buku')->get();
-        return view('penjualan.index', compact('penjualan'));
+        $penjualan = DB::table('penjualanns')
+                    ->join('bukus','penjualanns.id_buku','=','bukus.id')
+                    ->select('penjualanns.*','bukus.judul')->get();
+        return view('penjualan.index',compact('penjualan'));
     }
 
     /**
@@ -30,9 +33,8 @@ class PenjualanController extends Controller
     public function create()
     {
         //
-        $pelanggan = Pelanggan::all();
         $buku = Buku::all();
-        return view('penjualan.create', compact('pelanggan', 'buku'));
+        return view('penjualan.create',compact('buku'));
     }
 
     /**
@@ -44,12 +46,19 @@ class PenjualanController extends Controller
     public function store(Request $request)
     {
         //
-        $penjualan = new Penjualann;
-        $penjualan->id_pelanggan = $request->a;
-        $penjualan->id_buku = $request->b;
-        $penjualan->tgl_jual = $request->c;
+        $buku = Buku::findOrFail($request->buku);
+        $transaksis=$buku->stok;
+        $penjualan = new Penjualann();
+        $penjualan->kode_transaksi = $request->a;
+        $penjualan->id_buku = $request->buku;
+        $penjualan->tanggal = $request->c;
+        $penjualan->harga = $request->d;
+        $penjualan->jumlah = $request->e;
+        $buku->stok = $transaksis-$request->e;
+        $buku->save();
+        $penjualan->total_harga = $request->d*$request->e;
         $penjualan->save();
-        return redirect()->route('penjualan.index');
+        return redirect('/admin/penjualan');
     }
 
     /**
@@ -73,9 +82,8 @@ class PenjualanController extends Controller
     {
         //
         $penjualan = Penjualann::findOrFail($id);
-        $pelanggan = Pelanggan::all();
         $buku = Buku::all();
-        return view('penjualan.edit', compact('penjualan', 'pelanggan', 'buku'));
+        return view('penjualan.edit',compact('penjualan','buku'));
     }
 
     /**
@@ -88,12 +96,19 @@ class PenjualanController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $penjualan = Penjualann::findOrFail($id);
-        $penjualan->id_pelanggan = $request->a;
-        $penjualan->id_buku = $request->b;
-        $penjualan->tgl_jual = $request->c;
+        $buku = Buku::findOrFail($request->judul);
+        $transaksis=$buku->stok;
+        $penjualan =Penjualann::findOrFail($id);
+        $penjualan->kode_transaksi = $request->a;
+        $penjualan->id_buku = $request->judul;
+        $penjualan->tanggal = $request->b;
+        $penjualan->harga = $request->c;
+        $penjualan->jumlah = $request->d;
+        $buku->stok = $buku->stok-$request->e;
+        $buku->save();
+        $penjualan->total_harga = $request->c*$request->d;
         $penjualan->save();
-        return redirect()->route('penjualan.index');
+        return redirect('/admin/penjualan');
     }
 
     /**
@@ -107,6 +122,6 @@ class PenjualanController extends Controller
         //
         $penjualan = Penjualann::findOrFail($id);
         $penjualan->delete();
-        return redirect()->route('penjualan.index');
+        return redirect('/admin/penjualan');
     }
 }

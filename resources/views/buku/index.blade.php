@@ -1,17 +1,28 @@
-@extends('layouts.master')
+@extends('layouts.dd')
 @section('content')
 <div class="container">
 <div class="row">
-	<center><h1>Data Buku</h1></center>
-	<div class="panel panel-primary">
-		<div class="panel-heading">Data Buku
-		<div class="panel-title pull-right"><a href="{{ route('buku.create') }}">Tambah Data</a></div>
-		</div>
+	<div class="panel panel-default">
+		<div class="btn-flat btn btn-primary" > <a href="/admin/buku/create"><font color="white"> Tambah Data</font></a></div>
 
-		<div class="panel-body">
-			<table class="table">
-				<thead>
+    <div class="panel-heading">
+     Buku
+
+    </div>
+    <div>
+      <table class="table" ui-jq="footable" ui-options='{
+        "paging": {
+          "enabled": true
+        },
+        "filtering": {
+          "enabled": true
+        },
+        "sorting": {
+          "enabled": true
+        }}'>
+        <thead>
 					<tr>
+						<th>Kategori</th>
 						<th>Judul</th>
 						<th>Penulis</th>
 						<th>Cover</th>
@@ -23,11 +34,12 @@
 				<tbody>
 					@foreach($buku as $data)
 					<tr>
+						<td>{{$data->kategori}}</td>
 						<td>{{$data->judul}}</td>
 						<td>{{$data->penulis}}</td>
 						<td><img src="{{asset('/img/'.$data->cover)}}" width="90" height="120"></td>
 						<td>{{$data->stok}}</td>
-						<td>Rp. {{$data->harga}}</td>
+						<td>{{$data->harga}}</td>
 						<td>
 							<a class="btn btn-warning" href="{{route('buku.edit', $data->id)}}">Edit</a>
 						</td>

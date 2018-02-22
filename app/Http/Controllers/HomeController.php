@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('layouts.master');
+        return view('layouts.dd');
     }
 
     public function send()

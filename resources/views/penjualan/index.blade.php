@@ -1,29 +1,45 @@
-@extends('layouts.master')
+@extends('layouts.dd')
 @section('content')
 <div class="container">
 <div class="row">
-	<center><h1>Data Penjualan</h1></center>
-	<div class="panel panel-primary">
-		<div class="panel-heading">Data Penjualan
-		<div class="panel-title pull-right"><a href="{{ route('penjualan.create') }}">Tambah Data</a></div>
-		</div>
+	<div class="panel panel-default">
+		<div class="btn-flat btn btn-primary" > <a href="/admin/penjualan/create"><font color="white"> Tambah Data</font></a></div>
 
-		<div class="panel-body">
-			<table class="table">
-				<thead>
+    <div class="panel-heading">
+     Transaksi Penjualan
+
+    </div>
+    <div>
+      <table class="table" ui-jq="footable" ui-options='{
+        "paging": {
+          "enabled": true
+        },
+        "filtering": {
+          "enabled": true
+        },
+        "sorting": {
+          "enabled": true
+        }}'>
+        <thead>
 					<tr>
-						<th>Pelanggan</th>
+						<th>Kode Penjualan</th>
 						<th>Judul</th>
-						<th>Tanggal Jual</th>
+						<th>Tanggal</th>
+						<th>Harga</th>
+						<th>Jumlah</th>
+						<th>Total Harga</th>
 						<th colspan="3">Action</th>
 					</tr>
 				</thead>
 				<tbody>
 					@foreach($penjualan as $data)
 					<tr>
-						<td>{{$data->pelanggan->nama}}</td>
-						<td>{{$data->buku->judul}}</td>
-						<td>{{$data->tgl_jual}}</td>
+						<td>{{$data->kode_transaksi}}</td>
+						<td>{{$data->judul}}</td>
+						<td>{{$data->tanggal}}</td>
+						<td>{{$data->harga}}</td>
+						<td>{{$data->jumlah}}</td>
+						<td>{{$data->total_harga}}</td>
 						<td>
 							<a class="btn btn-warning" href="{{route('penjualan.edit', $data->id)}}">Edit</a>
 						</td>

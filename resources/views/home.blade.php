@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.dd')
 @section('content')
 <div class="container">
     <div class="row">
@@ -8,7 +8,7 @@
                <div class="panel-body">
                 <center>
                     Anda Berhasil Login!<br>
-                    Silakan Pilih Menu Administrasi yang Diinginkan
+                    Silakan Pilih Menu
                     </center>
                 </div>
             </div>

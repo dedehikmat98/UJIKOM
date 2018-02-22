@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Buku;
+use App\Kategori;
+use App\Pembelian;
+use App\Penjualan;
+use App\Penjualann; 
+use DB;      
 
 class BukuController extends Controller
 {
@@ -15,8 +20,10 @@ class BukuController extends Controller
     public function index()
     {
         //
-        $buku = Buku::all();
-        return view('buku.index', compact('buku'));
+        $buku = DB::table('bukus')
+                    ->join('kategoris','bukus.id_kategori','=','kategoris.id')
+                    ->select('bukus.*','kategoris.kategori')->get();
+        return view('buku.index',compact('buku'));
     }
 
     /**
@@ -27,7 +34,8 @@ class BukuController extends Controller
     public function create()
     {
         //
-        return view('buku.create');
+        $kategori = Kategori::all();
+        return view('buku.create',compact('kategori'));
     }
 
     /**
@@ -41,6 +49,7 @@ class BukuController extends Controller
         //
         $buku = new Buku;
         $buku->judul = $request->a;
+        $buku->id_kategori = $request->kategori;
         $buku->penulis = $request->b;
         $buku->stok = $request->c;
         $buku->harga = $request->d;
@@ -77,7 +86,8 @@ class BukuController extends Controller
     {
         //
         $buku = Buku::findOrFail($id);
-        return view('buku.edit', compact('buku'));
+        $kategori = Kategori::all();
+        return view('buku.edit',compact('buku','kategori'));
     }
 
     /**
@@ -92,6 +102,7 @@ class BukuController extends Controller
         //
         $buku = Buku::findOrFail($id);
         $buku->judul = $request->a;
+        $buku->id_kategori = $request->kategori; 
         $buku->penulis = $request->b;
         $buku->stok = $request->c;
         $buku->harga = $request->d;

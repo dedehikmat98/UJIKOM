@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Assalaam Book Store</title>
+    <title>AssalaamStore</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -83,21 +83,24 @@
                     <ul class="nav" id="side-menu">
                         @if (Auth::check())
                         <li>
-                            <a href="{{ url('/home')}}"><i class="fa fa-home fa-fw"></i> Dashboard</a>
+                            <a href="{{ url('/home')}}"><i class="fa fa-home fa-fw"></i> DASHBOARD</a>
                         </li>
                         @endif
                         @role('admin')
                         <li>
-                            <a href="{{ route('pelanggan.index')}}"><i class="fa fa-user fa-fw"></i> Pelanggan</a>
+                            <a href="{{ route('penjualan.index')}}"><i class="fa fa-database fa-fw"></i> PENJUALAN</a>
                         </li>
                         <li>
-                            <a href="{{ route('penjualan.index')}}"><i class="fa fa-database fa-fw"></i> Penjualan</a>
+                            <a href="{{ route('pembelian.index')}}"><i class="fa fa-database fa-fw"></i> PEMBELIAN</a>
                         </li>
                         <li>
-                            <a href="{{ route('buku.index')}}"><i class="fa fa-book fa-fw"></i> Data Buku</a>
+                            <a href="{{ route('supplier.index')}}"><i class="fa fa-database fa-fw"></i> DATA SUPPLIER</a>
                         </li>
                         <li>
-                            <a href="{{ route('detailpenjualan.index')}}"><i class="fa fa-database fa-fw"></i> Detail Penjualan</a>
+                            <a href="{{ route('buku.index')}}"><i class="fa fa-database fa-fw"></i> DATA BUKU</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('kategori.index')}}"><i class="fa fa-database fa-fw"></i> KATEGORI BUKU</a>
                         </li>
                         @endrole
                     </ul>
@@ -107,10 +110,10 @@
             <!-- /.navbar-static-side -->
         </nav>
 
-        <div id="page-wrapper">
+        <div id="page-wrapper"> 
             <div class="row">
                 <div class="col-lg-12">
-                   <h1 class="page-header">Assalaam Book Store</h1>
+                   <h1 class="page-header">AssalaamStore</h1>
                 </div>
 
 

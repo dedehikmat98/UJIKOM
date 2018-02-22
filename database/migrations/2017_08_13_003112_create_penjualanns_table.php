@@ -15,11 +15,13 @@ class CreatePenjualannsTable extends Migration
     {
         Schema::create('penjualanns', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_pelanggan')->unsigned();
-            $table->foreign('id_pelanggan')->references('id')->on('pelanggans')->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('kode_transaksi');
             $table->integer('id_buku')->unsigned();
             $table->foreign('id_buku')->references('id')->on('bukus')->onUpdate('cascade')->onDelete('cascade');
-            $table->date('tgl_jual');
+            $table->date('tanggal');
+            $table->integer('harga');
+            $table->integer('jumlah');
+            $table->integer('total_harga');
             $table->timestamps();
         });
     }

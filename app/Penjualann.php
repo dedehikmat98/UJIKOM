@@ -3,17 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Buku;
+use App\Penjualann;
 
 class Penjualann extends Model
 {
     //
-    protected $fillable = ['id_pelanggan', 'id_buku', 'tgl_jual'];
-    protected $visible = ['id_pelanggan', 'id_buku', 'tgl_jual'];
+    protected $fillable = ['kode_transaksi', 'id_buku', 'tanggal','harga','jumlah','total_harga'];
+    protected $visible = ['kode_transaksi', 'id_buku', 'tanggal','harga','jumlah','total_harga'];
     public $timestamps = true;
-    public function pelanggan()
-    {
-    	return $this->belongsTo('App\Pelanggan', 'id_pelanggan');
-    }
 
      public function buku()
     {

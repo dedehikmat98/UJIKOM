@@ -5,7 +5,7 @@
         <div class="col-md-8 co-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    Selamat Datang di Assalaam Book Store!
+                    Selamat Datang di AssalaamStore!
                 </div>
             </div>
         </div>

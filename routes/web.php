@@ -20,10 +20,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix'=>'admin', 'middleware'=>['auth', 'role:admin']], function(){
-Route::resource('pelanggan', 'PelangganController');
 Route::resource('penjualan', 'PenjualanController');
+Route::resource('kategori', 'KategoriController');
 Route::resource('buku', 'BukuController');
-Route::resource('detailpenjualan', 'DetailPenjualanController');
+Route::resource('karyawan', 'KaryawanController');
+Route::resource('supplier', 'SupplierController');
+Route::resource('pembelian', 'PembeliansController');
 });
 
 Route::get('/Route', function () {

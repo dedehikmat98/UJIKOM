@@ -27,7 +27,7 @@ class UsersSeeder extends Seeder
 
         //Membuat Sample Admin
         $admin = new User();
-        $admin->name = "Admin Toko";
+        $admin->name = "Admin";
         $admin->email = 'admin@gmail.com';
         $admin->password = bcrypt('rahasia');
         $admin->save();
@@ -35,7 +35,7 @@ class UsersSeeder extends Seeder
 
         //Membuat Sample Member
         $member = new User();
-        $member->name = "Sample Member";
+        $member->name = "Member";
         $member->email = 'member@gmail.com';
         $member->password = bcrypt('rahasia');
         $member->save();

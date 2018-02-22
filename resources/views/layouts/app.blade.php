@@ -41,10 +41,11 @@
                             <li><a href="{{ url('/home')}}">Dashboard</a></li>
                         @endif
                         @role('admin')
-                        <li><a href="{{ route('pelanggan.index') }}">Pelanggan</a></li>
-                        <li><a href="{{ route('penjualan.index') }}">Penjualan</a></li>
+                        <li><a href="{{ route('supplier.index') }}">Supplier</a></li>
+                        <li><a href="{{ route('kategori.index') }}">Kategori</a></li>
                         <li><a href="{{ route('buku.index') }}">Buku</a></li>
-                        <li><a href="{{ route('detailpenjualan.index') }}">Detail Penjualan</a></li>
+                        <li><a href="{{ route('penjualan.index') }}">Penjualan</a></li>
+                        <li><a href="{{ route('pembelian.index') }}">Pembelian</a></li>
                         @endrole
                         
                     </ul>
