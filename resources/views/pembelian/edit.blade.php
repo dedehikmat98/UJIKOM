@@ -35,7 +35,7 @@
 
 				<div class="form-group">
 					<label class="control-lable">Judul</label>
-					<select class="form-control" name="judul">
+					<select class="form-control" name="b">
 					@foreach($buku as $b)
 					<option value="{{$b->id}}">{{$b->judul}}</option>
 					@endforeach

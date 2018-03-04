@@ -22,10 +22,6 @@
 		<div class="panel-body">
 			<form action="{{route('penjualan.store')}}" method = "post">
 				{{csrf_field()}}
-				<div class="form-group">
-					<label class="control-lable">Kode Transaksi</label>
-					<input type="text" name="a" class="form-control" required="">
-				</div>
 
 				<div class="form-group">
 					<label class="control-lable">Judul</label>

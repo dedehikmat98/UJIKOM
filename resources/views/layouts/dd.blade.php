@@ -99,7 +99,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
                     <a class="active" href="{{ url('/home')}}">
-                        <i class="fa fa-dashboard"></i>
+                        <i class="fa fa-home"></i>
                         <span>DASHBOARD</span>
                     </a>
                 </li>
@@ -107,38 +107,40 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                  
                 <li>
                     <a class="active" href="{{ route('kategori.index') }}">
-                        <i class="fa fa-th"></i>
+                        <i class="fa fa-list-ul"></i>
                         <span>KATEGORI</span>
                     </a>
                 </li>
 
                  <li>
                     <a class="active" href="{{ route('buku.index') }}">
-                        <i class="fa fa-th"></i>
+                        <i class="fa fa-book"></i>
                         <span>BUKU</span>
                     </a>
                 </li>
 
                 <li>
                     <a class="active" href="{{ route('supplier.index') }}">
-                        <i class="fa fa-th"></i>
+                        <i class="fa fa-user"></i>
                         <span>SUPPLIER</span>
                     </a>
                 </li>
 
                 <li>
                     <a class="active" href="{{ route('penjualan.index') }}">
-                        <i class="fa fa-th"></i>
+                        <i class="fa fa-shopping-cart"></i>
                         <span>PENJUALAN</span>
                     </a>
                 </li>
 
                 <li>
                     <a class="active" href="{{ route('pembelian.index') }}">
-                        <i class="fa fa-th"></i>
+                        <i class="fa fa-shopping-cart"></i>
                         <span>PEMBELIAN</span>
                     </a>
                 </li>
+
+                
 
                
                

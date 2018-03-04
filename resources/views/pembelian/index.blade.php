@@ -23,10 +23,10 @@
         }}'>
         <thead>
           <tr>
-            <th>Kode Pembelian</th>
+            			<th>Kode Pembelian</th>
 						<th>Supplier</th>
 						<th>Judul</th>
-						<th>Tanggal Transaksi</th>
+						<th>Tanggal</th>
 						<th>Harga</th>
 						<th>Jumlah</th>
 						<th>Total Harga</th>

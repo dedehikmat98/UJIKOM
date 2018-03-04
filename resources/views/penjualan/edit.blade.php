@@ -25,11 +25,6 @@
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
 
 				<div class="form-group">
-					<label class="control-lable">Kode Transaksi</label>
-					<input type="text" name="a" class="form-control" value="{{$penjualan->kode_transaksi}}" required="">
-				</div>
-
-				<div class="form-group">
 					<label class="control-lable">Judul</label>
 					<select class="form-control" name="judul">
 					@foreach($buku as $b)

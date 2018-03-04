@@ -49,7 +49,6 @@ class PenjualanController extends Controller
         $buku = Buku::findOrFail($request->buku);
         $transaksis=$buku->stok;
         $penjualan = new Penjualann();
-        $penjualan->kode_transaksi = $request->a;
         $penjualan->id_buku = $request->buku;
         $penjualan->tanggal = $request->c;
         $penjualan->harga = $request->d;
@@ -99,7 +98,6 @@ class PenjualanController extends Controller
         $buku = Buku::findOrFail($request->judul);
         $transaksis=$buku->stok;
         $penjualan =Penjualann::findOrFail($id);
-        $penjualan->kode_transaksi = $request->a;
         $penjualan->id_buku = $request->judul;
         $penjualan->tanggal = $request->b;
         $penjualan->harga = $request->c;

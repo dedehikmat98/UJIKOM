@@ -9,8 +9,8 @@ use App\Penjualann;
 class Penjualann extends Model
 {
     //
-    protected $fillable = ['kode_transaksi', 'id_buku', 'tanggal','harga','jumlah','total_harga'];
-    protected $visible = ['kode_transaksi', 'id_buku', 'tanggal','harga','jumlah','total_harga'];
+    protected $fillable = ['id_buku', 'tanggal','harga','jumlah','total_harga'];
+    protected $visible = ['id_buku', 'tanggal','harga','jumlah','total_harga'];
     public $timestamps = true;
 
      public function buku()

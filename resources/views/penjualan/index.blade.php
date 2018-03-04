@@ -34,7 +34,7 @@
 				<tbody>
 					@foreach($penjualan as $data)
 					<tr>
-						<td>{{$data->kode_transaksi}}</td>
+						<td>{{$data->id}}</td>
 						<td>{{$data->judul}}</td>
 						<td>{{$data->tanggal}}</td>
 						<td>{{$data->harga}}</td>
@@ -60,3 +60,6 @@
 </div>
 </div>
 @endsection
+
+
+

@@ -98,7 +98,7 @@ class PembeliansController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $buku = Buku::findOrFail($request->judul);
+        $buku = Buku::findOrFail($request->b);
         $pembelian =Pembelian::findOrFail($id);
         $pembelian->id_supplier = $request->a;
         $pembelian->id_buku = $request->b;

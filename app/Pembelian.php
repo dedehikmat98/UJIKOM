@@ -10,7 +10,6 @@ class Pembelian extends Model
 {
     //
     protected $fillable = ['id_supplier','id_buku','judul','tanggal','harga','jumlah','total_harga'];
-    public $timestamps = true ;
 
     public function supplier()
     {
