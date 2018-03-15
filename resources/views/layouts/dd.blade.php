@@ -97,12 +97,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <!-- sidebar menu start-->
         <div class="leftside-navigation">
             <ul class="sidebar-menu" id="nav-accordion">
+
                 <li>
-                    <a class="active" href="{{ url('/home')}}">
+                    <a class="active" href="{{  url('/home') }}">
                         <i class="fa fa-home"></i>
                         <span>DASHBOARD</span>
                     </a>
                 </li>
+                
+                @role('admin')
+                <li>
+                    <a class="active" href="{{ route('karyawan.index') }}">
+                        <i class="fa fa-user"></i>
+                        <span>KARYAWAN</span>
+                    </a>
+                </li>
+                @endrole
+
             
                  
                 <li>

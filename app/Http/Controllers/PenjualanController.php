@@ -7,6 +7,7 @@ use DB;
 use App\Buku;
 use App\Penjualan;
 use App\Penjualann;
+use Session;
 
 class PenjualanController extends Controller
 {
@@ -54,8 +55,16 @@ class PenjualanController extends Controller
         $penjualan->harga = $request->d;
         $penjualan->jumlah = $request->e;
         $buku->stok = $transaksis-$request->e;
-        $buku->save();
         $penjualan->total_harga = $request->d*$request->e;
+        
+        if($buku->stok <0){
+            Session::flash("flash_notification",["level"=>"denger","message"=>"Mohon Maaf Stok Anda Sudah Habis"]);
+
+        return redirect('admin/penjualan/create')
+        }
+        $buku->save();
+        
+        
         $penjualan->save();
         return redirect('/admin/penjualan');
     }

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Role;
+use Illuminate\Http\Request;
 
 class KaryawanController extends Controller
 {
@@ -40,10 +41,10 @@ class KaryawanController extends Controller
      */
     public function store(Request $request)
     {
-        $karyawan = new Karyawan;
+        $karyawan = new User();
         $karyawan->name = $request->a;
         $karyawan->email = $request->b;
-        $karyawan->password = $request->c;
+        $karyawan->password =bcrypt( $request['c']);
         $karyawan->save();
         return redirect()->route('karyawan.index');
     }

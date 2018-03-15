@@ -1,70 +1,58 @@
-@extends('layouts.app')
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<head>
+<title>{{ config('app.name', 'Laravel') }}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap-css -->
+<link rel="stylesheet" href="/mamahdande/css/bootstrap.min.css" >
+<!-- //bootstrap-css -->
+<!-- Custom CSS -->
+<link href="/mamahdande/css/style.css" rel='stylesheet' type='text/css' />
+<link href="/mamahdande/css/style-responsive.css" rel="stylesheet"/>
+<!-- font CSS -->
+<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<!-- font-awesome icons -->
+<link rel="stylesheet" href="/mamahdande/css/font.css" type="text/css"/>
+<link href="/mamahdande/css/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+<script src="/mamahdande/js/jquery2.0.3.min.js"></script>
+</head>
+<body>
+<div class="log-w3">
+<div class="w3layouts-main">
+    <h2>Sign In Now</h2>
+        {!! Form::open(['url'=>'login', 'class'=>'form-horizontal']) !!}
+            
 
-@section('content')
+            <input type="email" class="ggg{{ $errors->has('email') ? ' has-error' : '' }}" name="email" placeholder="E-MAIL" required="">
+           
+        {!! $errors->first('email','<p class="help-block">:message</p>') !!}
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+            <input type="password" class="ggg{{ $errors->has('password') ? ' has-error' : '' }}" name="password" placeholder="PASSWORD" required="">{!! $errors->first('password','<p class="help-block">:message</p>')!!}
+            
+           
+                <div class="clearfix"></div>
+                <input type="submit" value="Sign In" name="login">
+   {!! Form::close() !!}
+       
 </div>
-@endsection
+</div>
+<script src="/mamahdande/js/bootstrap.js"></script>
+<script src="/mamahdande/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="/mamahdande/js/scripts.js"></script>
+<script src="/mamahdande/js/jquery.slimscroll.js"></script>
+<script src="/mamahdande/js/jquery.nicescroll.js"></script>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
+<script src="/mamahdande/js/jquery.scrollTo.js"></script>
+</body>
+</html>

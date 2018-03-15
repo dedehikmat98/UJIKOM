@@ -23,11 +23,11 @@
 			<form action="{{route('karyawan.store')}}" method ="post">
 				{{csrf_field()}}
 				<div class="form-group">
-					<label class="control-lable">Role</label>
+					<label class="control-lable">Nama</label>
 					<input type="text" name="a" class="form-control" required="">
 				</div>
 				<div class="form-group">
-					<label class="control-lable">Username</label>
+					<label class="control-lable">Email</label>
 					<input type="text" name="b" class="form-control" required="">
 				</div>
 				<div class="form-group">

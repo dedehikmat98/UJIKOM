@@ -22,8 +22,8 @@
         }}'>
         <thead>
 					<tr>
-						<th>Role</th>
-						<th>Username</th>
+						<th>Nama</th>
+						<th>Email</th>
 						<th>Password</th>
 						<th colspan="3">Action</th>
 					</tr>
@@ -34,7 +34,7 @@
 						<td>{{$data->name}}</td>
 						<td>{{$data->email}}</td>
 						<td>{{$data->password}}</td>
-						<td><a class="btn btn-warning" href="{{route('karyawan.edit', $data->id)}}">Edit</a></td>
+						
 							<td><form action="{{route('karyawan.destroy',$data->id)}}" method="post">
 								<input type="hidden" name="_method" value="DELETE">
 								<input type="hidden" name="_token">
